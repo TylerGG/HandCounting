@@ -59,6 +59,10 @@ bool HandFrequency::allHandTypesOccured() {
 }
 
 
+void HandFrequency::printFrequencies(std::ostream &) {
+
+}
+
 void HandFrequency::drawAndAnalyseHand(std::vector<Card> &deck) {
 
 

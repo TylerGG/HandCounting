@@ -19,12 +19,15 @@ int main()
 	cout << "Generating Deck" << endl;
 	populateDeck(deck);
 	
-	cout << "Shuffling Deck" << endl;
-	random_shuffle(deck.begin(), deck.end());
+	
 	HandFrequency hf;
 
 	while(!hf.allHandTypesOccured()) {
+		cout << "Shuffling Deck" << endl;
+		random_shuffle(deck.begin(), deck.end());
 		hf.drawAndAnalyseHand(deck);
 	}
+
+	hf.printFrequencies(cout);
 
 }

@@ -1,6 +1,7 @@
 #ifndef HAND_FREQUENCY_H
 #define HAND_FREQUENCY_H
 
+#include <iostream>
 #include "Card.h"
 #include <vector>
 
@@ -28,6 +29,7 @@ private:
 	void checkForNoPair();
 	
 public:
+	void printFrequencies(std::ostream &);
 	bool allHandTypesOccured();
 	void drawAndAnalyseHand(std::vector<Card> &);
 };
