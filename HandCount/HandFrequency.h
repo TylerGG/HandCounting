@@ -29,7 +29,7 @@ private:
 	
 public:
 	void printFrequencies(std::ostream &);
-	bool allHandTypesOccured();
+	bool allHandTypesOccurred();
 	void drawAndAnalyzeHand(std::vector<Card> &);
 };
 #endif

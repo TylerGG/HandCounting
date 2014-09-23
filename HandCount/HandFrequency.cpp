@@ -37,12 +37,9 @@ bool operator <(Card lhs, Card rhs){
 	return lhs.getRank() < rhs.getRank();
 }
 
-bool HandFrequency::allHandTypesOccured() {
+bool HandFrequency::allHandTypesOccurred() {
 	
-	if(royalFlush > 0 && straightFlush > 0 && fourOfAKind > 0 && fullHouse > 0 && flush > 0 && straight > 0 && threeOfAKind > 0 && twoPair > 0 && onePair > 0 && noPair > 0)
-		return true;
-	else		
-		return false;
+	return (royalFlush > 0 && straightFlush > 0 && fourOfAKind > 0 && fullHouse > 0 && flush > 0 && straight > 0 && threeOfAKind > 0 && twoPair > 0 && onePair > 0 && noPair > 0);
 }
 
 

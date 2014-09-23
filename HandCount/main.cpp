@@ -22,7 +22,7 @@ int main()
 	
 	HandFrequency hf;
 
-	while(!hf.allHandTypesOccured()) {
+	while(!hf.allHandTypesOccurred()) {
 		cout << "Shuffling Deck" << endl;
 		random_shuffle(deck.begin(), deck.end());
 		hf.drawAndAnalyzeHand(deck);
