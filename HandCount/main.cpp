@@ -18,8 +18,6 @@ int main()
 
 	cout << "Generating Deck" << endl;
 	populateDeck(deck);
-	
-	
 	HandFrequency hf;
 
 	while(!hf.allHandTypesOccurred()) {

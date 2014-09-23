@@ -30,5 +30,6 @@ public:
 	void printFrequencies(std::ostream &);
 	bool allHandTypesOccurred();
 	void drawAndAnalyzeHand(std::vector<Card> &);
+	HandFrequency();
 };
 #endif

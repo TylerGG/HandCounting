@@ -1,5 +1,17 @@
 #include "HandFrequency.h"
 
+HandFrequency::HandFrequency() {
+	royalFlush = 0;
+	straightFlush = 0;
+	fourOfAKind = 0;
+	fullHouse = 0;
+	flush = 0;
+	straight = 0;
+	threeOfAKind = 0;
+	twoPair = 0;
+	onePair = 0;
+	noPair = 0;
+}
 bool HandFrequency::checkForFourOfAKind(std::vector<Card> hand) {
 
 	return(hand[0].getRank() == hand[3].getRank() || hand[1].getRank() == hand[4].getRank());
