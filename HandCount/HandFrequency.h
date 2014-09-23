@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Card.h"
 #include <vector>
+#include <algorithm>
 
 class HandFrequency {
 private:
@@ -17,16 +18,14 @@ private:
 	int twoPair;
 	int onePair;
 	int noPair;
-	bool checkForRoyalFlush();
-	bool checkForStraightFlush();
-	bool checkForFourOfAKind();
-	bool checkForFullHouse();
-	bool checkForFlush();
-	bool checkForStraight();
-	bool checkForThreeOfAKind();
-	bool checkForTwoPair();
-	bool checkForOnePair();
-	bool checkForNoPair();
+	bool checkForFourOfAKind(std::vector<Card> hand);
+	bool checkForFullHouse(std::vector<Card> hand);
+	bool checkForFlush(std::vector<Card> hand);
+	bool checkForStraight(std::vector<Card> hand);
+	bool checkForThreeOfAKind(std::vector<Card> hand);
+	bool checkForTwoPair(std::vector<Card> hand);
+	bool checkForOnePair(std::vector<Card> hand);
+	bool checkForNoPair(std::vector<Card> hand);
 	
 public:
 	void printFrequencies(std::ostream &);

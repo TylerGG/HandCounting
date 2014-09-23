@@ -30,6 +30,9 @@ private:
 	Rank rank;
 public:
 	Card(Suit s, Rank r);
+	Suit getSuit();
+	Rank getRank();
+	
 };
 
 #endif
