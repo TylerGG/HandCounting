@@ -25,8 +25,8 @@ bool HandFrequency::checkForTwoPair(std::vector<Card> hand) {
 	return((hand[0].getRank() == hand[1].getRank() && ((hand[2].getRank() == hand[3].getRank()) || (hand[3].getRank() == hand[4].getRank()))) || (hand[1].getRank()==hand[2].getRank() && hand[3].getRank()==hand[4].getRank()));
 }
 bool HandFrequency::checkForOnePair(std::vector<Card> hand) {
-	//XXOOO, OXXOO, OOXXO, OOOXX
-	return false;
+	
+	return (hand[0].getRank() == hand[1].getRank() || hand[1].getRank() == hand[2].getRank() || hand[2].getRank() == hand[3].getRank() || hand[3].getRank() == hand[4].getRank());
 }
 
 bool operator <(Card lhs, Card rhs){
