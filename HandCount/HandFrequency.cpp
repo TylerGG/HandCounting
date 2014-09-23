@@ -1,34 +1,44 @@
 #include "HandFrequency.h"
 
-void HandFrequency::checkForRoyalFlush() {
+bool HandFrequency::checkForRoyalFlush() {
 	++royalFlush;
+	return false;
 }
-void HandFrequency::checkForStraightFlush() {
+bool HandFrequency::checkForStraightFlush() {
 	++straightFlush;
+	return false;
 }
-void HandFrequency::checkForFourOfAKind() {
+bool HandFrequency::checkForFourOfAKind() {
 	++fourOfAKind;
+	return false;
 }
-void HandFrequency::checkForFullHouse() {
+bool HandFrequency::checkForFullHouse() {
 	++fullHouse;
+	return false;
 }
-void HandFrequency::checkForFlush() {
+bool HandFrequency::checkForFlush() {
 	++flush;
+	return false;
 }
-void HandFrequency::checkForStraight() {
+bool HandFrequency::checkForStraight() {
 	++straight;
+	return false;
 }
-void HandFrequency::checkForThreeOfAKind() {
+bool HandFrequency::checkForThreeOfAKind() {
 	++threeOfAKind;
+	return false;
 }
-void HandFrequency::checkForTwoPair() {
+bool HandFrequency::checkForTwoPair() {
 	++twoPair;
+	return false;
 }
-void HandFrequency::checkForOnePair() {
+bool HandFrequency::checkForOnePair() {
 	++onePair;
+	return false;
 }
-void HandFrequency::checkForNoPair() {
+bool HandFrequency::checkForNoPair() {
 	++noPair;
+	return false;
 }
 
 

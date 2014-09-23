@@ -17,16 +17,16 @@ private:
 	int twoPair;
 	int onePair;
 	int noPair;
-	void checkForRoyalFlush();
-	void checkForStraightFlush();
-	void checkForFourOfAKind();
-	void checkForFullHouse();
-	void checkForFlush();
-	void checkForStraight();
-	void checkForThreeOfAKind();
-	void checkForTwoPair();
-	void checkForOnePair();
-	void checkForNoPair();
+	bool checkForRoyalFlush();
+	bool checkForStraightFlush();
+	bool checkForFourOfAKind();
+	bool checkForFullHouse();
+	bool checkForFlush();
+	bool checkForStraight();
+	bool checkForThreeOfAKind();
+	bool checkForTwoPair();
+	bool checkForOnePair();
+	bool checkForNoPair();
 	
 public:
 	void printFrequencies(std::ostream &);
