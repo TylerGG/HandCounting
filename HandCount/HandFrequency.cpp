@@ -1,35 +1,31 @@
 #include "HandFrequency.h"
 
 bool HandFrequency::checkForFourOfAKind(std::vector<Card> hand) {
-	//XXXXO, OXXXX
-	return false;
+
+	return(hand[0].getRank() == hand[3].getRank() || hand[1].getRank() == hand[4].getRank());
 }
 bool HandFrequency::checkForFullHouse(std::vector<Card> hand) {
-	//XXXYY, XXYYY
-	return false;
+
+	return(hand[0].getRank() == hand[1].getRank() && hand[3].getRank() == hand[4].getRank() && (hand[2].getRank() == hand[0].getRank() || hand[2].getRank() == hand[4].getRank()));
 }
 bool HandFrequency::checkForFlush(std::vector<Card> hand) {
 	
-	return( hand[0].getSuit() == hand[1].getSuit() && hand[1].getSuit() == hand[2].getSuit() && hand[2].getSuit() == hand[3].getSuit() && hand[3].getSuit() == hand[4].getSuit());
+	return(hand[0].getSuit() == hand[1].getSuit() && hand[1].getSuit() == hand[2].getSuit() && hand[2].getSuit() == hand[3].getSuit() && hand[3].getSuit() == hand[4].getSuit());
 }
 bool HandFrequency::checkForStraight(std::vector<Card> hand) {
 	
-	return ( (hand[0].getRank() + 1 == hand[1].getRank() && hand[1].getRank() + 1 == hand[2].getRank() && hand[2].getRank() + 1 == hand[3].getRank() && hand[3].getRank() + 1 == hand[4].getRank()) || (hand[0].getRank() == 0 && hand[1].getRank() == 1 && hand[2].getRank() == 2 && hand[3].getRank() == 3 && hand[4].getRank() == 12 ));
+	return((hand[0].getRank() + 1 == hand[1].getRank() && hand[1].getRank() + 1 == hand[2].getRank() && hand[2].getRank() + 1 == hand[3].getRank() && hand[3].getRank() + 1 == hand[4].getRank()) || (hand[0].getRank() == 0 && hand[1].getRank() == 1 && hand[2].getRank() == 2 && hand[3].getRank() == 3 && hand[4].getRank() == 12 ));
 }
 bool HandFrequency::checkForThreeOfAKind(std::vector<Card> hand) {
-	//XXXOO, OXXXO, OOXXX
-	return false;
+	
+	return((hand[0].getRank() == hand[1].getRank() && hand[0].getRank() == hand[2].getRank()) || (hand[1].getRank() == hand[2].getRank() && hand[1].getRank() == hand[3].getRank()) || (hand[2].getRank() == hand[3].getRank() && hand[2].getRank() == hand[4].getRank()));
 }
 bool HandFrequency::checkForTwoPair(std::vector<Card> hand) {
-	//XXOYY, XXYYO, OXXYY
-	return false;
+
+	return((hand[0].getRank() == hand[1].getRank() && ((hand[2].getRank() == hand[3].getRank()) || (hand[3].getRank() == hand[4].getRank()))) || (hand[1].getRank()==hand[2].getRank() && hand[3].getRank()==hand[4].getRank()));
 }
 bool HandFrequency::checkForOnePair(std::vector<Card> hand) {
 	//XXOOO, OXXOO, OOXXO, OOOXX
-	return false;
-}
-bool HandFrequency::checkForNoPair(std::vector<Card> hand) {
-	
 	return false;
 }
 
@@ -70,7 +66,17 @@ void HandFrequency::drawAndAnalyzeHand(std::vector<Card> &deck) {
 	} else if(isStraight) {
 		++straight;
 	} else {
-		//determine if 4OAK, FH, 3OAK, 2PR, 1PR, NPR
+		if(checkForFourOfAKind(hand))
+			++fourOfAKind;
+		else if(checkForFullHouse(hand))
+			++fullHouse;
+		else if(checkForThreeOfAKind(hand))
+			++threeOfAKind;
+		else if(checkForTwoPair(hand))
+			++twoPair;
+		else if(checkForOnePair(hand))
+			++onePair;
+		else
+			++noPair;
 	}
-	
 }

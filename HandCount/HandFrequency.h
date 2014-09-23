@@ -25,7 +25,6 @@ private:
 	bool checkForThreeOfAKind(std::vector<Card> hand);
 	bool checkForTwoPair(std::vector<Card> hand);
 	bool checkForOnePair(std::vector<Card> hand);
-	bool checkForNoPair(std::vector<Card> hand);
 	
 public:
 	void printFrequencies(std::ostream &);
