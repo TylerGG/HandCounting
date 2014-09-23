@@ -31,6 +31,6 @@ private:
 public:
 	void printFrequencies(std::ostream &);
 	bool allHandTypesOccured();
-	void drawAndAnalyseHand(std::vector<Card> &);
+	void drawAndAnalyzeHand(std::vector<Card> &);
 };
 #endif

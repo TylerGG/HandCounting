@@ -25,7 +25,7 @@ int main()
 	while(!hf.allHandTypesOccured()) {
 		cout << "Shuffling Deck" << endl;
 		random_shuffle(deck.begin(), deck.end());
-		hf.drawAndAnalyseHand(deck);
+		hf.drawAndAnalyzeHand(deck);
 	}
 
 	hf.printFrequencies(cout);

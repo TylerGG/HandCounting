@@ -73,7 +73,7 @@ void HandFrequency::printFrequencies(std::ostream &) {
 
 }
 
-void HandFrequency::drawAndAnalyseHand(std::vector<Card> &deck) {
+void HandFrequency::drawAndAnalyzeHand(std::vector<Card> &deck) {
 
 
 }
