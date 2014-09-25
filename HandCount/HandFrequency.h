@@ -25,11 +25,16 @@ private:
 	bool checkForThreeOfAKind(std::vector<Card> hand);
 	bool checkForTwoPair(std::vector<Card> hand);
 	bool checkForOnePair(std::vector<Card> hand);
+	double start;
+	double end;
 	
 public:
 	void printFrequencies(std::ostream &);
 	bool allHandTypesOccurred();
 	void drawAndAnalyzeHand(std::vector<Card> &);
+	void startTiming();
+	void stopTiming();
+	
 	HandFrequency();
 };
 #endif

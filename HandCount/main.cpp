@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <locale>
 using namespace std;
 
 void populateDeck(vector<Card> &deck) {
@@ -14,18 +15,22 @@ void populateDeck(vector<Card> &deck) {
 
 int main()
 {
-	vector<Card> deck;
+	locale loc("");
+	cout.imbue(loc);
 
-	cout << "Generating Deck" << endl;
+
+	cout  << "HandFrequency : - This program will draw random hands of playing cards until one of each type is drawn then display the results" << endl;
+	cout << "[[serial verstion]]" << endl;
+	vector<Card> deck;
 	populateDeck(deck);
 	HandFrequency hf;
 
+	hf.startTiming();
 	while(!hf.allHandTypesOccurred()) {
-		cout << "Shuffling Deck" << endl;
 		random_shuffle(deck.begin(), deck.end());
 		hf.drawAndAnalyzeHand(deck);
 	}
-
+	hf.stopTiming();
 	hf.printFrequencies(cout);
 
 }
