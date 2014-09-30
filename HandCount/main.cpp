@@ -24,7 +24,7 @@ int main()
 	vector<Card> deck;
 	populateDeck(deck);
 	HandFrequency hf;
-
+	srand(time(0));
 	hf.startTiming();
 	while(!hf.allHandTypesOccurred()) {
 		random_shuffle(deck.begin(), deck.end());
