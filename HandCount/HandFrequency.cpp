@@ -1,5 +1,6 @@
 #include "HandFrequency.h"
 #include <omp.h>
+#include <mpi.h>
 
 using namespace std;
 
@@ -136,6 +137,13 @@ void HandFrequency::printFrequencies(std::ostream &out) {
 	cout.width(25); cout << right << end - start;
 	cout << endl;
 
+	
+	int numProcs;
+	MPI_Comm_size(MPI_COMM_WORLD, &numProcs);
+	cout.width(25); cout << right << "Number Of Proceses";
+	cout.width(25); cout << right << numProcs;
+	cout << endl;
+
 	cout.width(25); cout << right << "------------";
 	cout.width(25); cout << right << "------------";
 	cout << endl;
@@ -181,9 +189,9 @@ void HandFrequency::drawAndAnalyzeHand(std::vector<Card> &deck) {
 }
 
 void HandFrequency::startTiming() {
-	start = omp_get_wtime();
+	start = MPI_Wtime();
 }
 
 void HandFrequency::stopTiming() {
-	end = omp_get_wtime();
+	end = MPI_Wtime();
 }
