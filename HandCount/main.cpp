@@ -24,11 +24,12 @@ int main(int argc, char* argv[])
 
 
 	cout  << "HandFrequency : - This program will draw random hands of playing cards until one of each type is drawn then display the results" << endl;
-	cout << "[[serial vertion]]" << endl;
+
+	cout << "[[serial version]]" << endl;
 	vector<Card> deck;
 	populateDeck(deck);
 	HandFrequency hf;
-
+	srand(time(0));
 	hf.startTiming();
 	while(!hf.allHandTypesOccurred()) {
 		random_shuffle(deck.begin(), deck.end());

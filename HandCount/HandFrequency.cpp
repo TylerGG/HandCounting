@@ -50,7 +50,6 @@ bool operator <(Card lhs, Card rhs){
 }
 
 bool HandFrequency::allHandTypesOccurred() {
-	
 	return (royalFlush > 0 && straightFlush > 0 && fourOfAKind > 0 && fullHouse > 0 && flush > 0 && straight > 0 && threeOfAKind > 0 && twoPair > 0 && onePair > 0 && noPair > 0);
 }
 
