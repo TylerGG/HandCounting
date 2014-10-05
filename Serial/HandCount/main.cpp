@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <locale>
+#include <mpi.h>
 using namespace std;
 
 void populateDeck(vector<Card> &deck) {
@@ -13,13 +14,17 @@ void populateDeck(vector<Card> &deck) {
 	}
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	if( !MPI_Init(&argc, &argv) == MPI_SUCCESS )
+		return EXIT_FAILURE;
+
 	locale loc("");
 	cout.imbue(loc);
 
 
 	cout  << "HandFrequency : - This program will draw random hands of playing cards until one of each type is drawn then display the results" << endl;
+
 	cout << "[[serial version]]" << endl;
 	vector<Card> deck;
 	populateDeck(deck);
@@ -33,4 +38,5 @@ int main()
 	hf.stopTiming();
 	hf.printFrequencies(cout);
 
+	MPI_Finalize();
 }
