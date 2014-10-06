@@ -7,6 +7,9 @@
 #include <mpi.h>
 using namespace std;
 
+const int MAX_MSG_SIZE = 10;
+const int TAG_DATA = 0, TAG_QUIT = 1;
+
 bool checkForFourOfAKind(std::vector<Card> hand) {
 
 	return(hand[0].getRank() == hand[3].getRank() || hand[1].getRank() == hand[4].getRank());
@@ -86,11 +89,35 @@ void populateDeck(vector<Card> &deck) {
 	}
 }
 
-void checkForNewHands() {
+void terminateWorkers(int numProcs) {
+	int msgBuff = 0;
+	for (int p = 1; p < numProcs; ++p)
+		MPI_Send(&msgBuff, 1, MPI_INT, p, TAG_QUIT, MPI_COMM_WORLD);
+}
 
+void recvFromWorkers(int numProcs, HandFrequency &hf) {
+	int msgBuff[10];
+	MPI_Status status;
+	for (int p = 1; p < numProcs; ++p) {
+		MPI_Recv(&msgBuff, 10, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+		hf.addResults(msgBuff);
+	}
+}
+
+void checkForNewHands(HandFrequency &hf) {
+
+	static int msgBuff, recvFlag;
+	MPI_Status status;
+	
 	//check for message
-	//if message set that bool to true
+	MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &recvFlag, &status);
 
+	if (recvFlag)
+	{
+		MPI_Recv(&msgBuff, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+		if(status.MPI_TAG == TAG_DATA)
+			hf.foundHand(msgBuff);
+	}
 }
 
 void processMaster(int numProcs) {
@@ -116,17 +143,41 @@ void processMaster(int numProcs) {
 		handFound = drawAndAnalyzeHand(deck);
 		hands[handFound]++;
 		hf.foundHand(handFound);
-		checkForNewHands();
+		checkForNewHands(hf);
 	}
-
+	terminateWorkers(numProcs);
+	recvFromWorkers(numProcs, hf);
 	///////////////////////
 	hf.stopTiming();
 	hf.printFrequencies(cout);
 }
 
 void processWorker(int rank) {
+	int handFound, msgBuff;
+	static int recvFlag;
+	MPI_Status status;
+	MPI_Request request;
+	int hands[10] = {0};
+	vector<Card> deck;
+	populateDeck(deck);
+	do {
+		random_shuffle(deck.begin(), deck.end());
+		handFound = drawAndAnalyzeHand(deck);
+		if(hands[handFound]++ == 0){
+			//send message
+			MPI_Send(&handFound, 1, MPI_INT, 0, TAG_DATA, MPI_COMM_WORLD);
+		}
+		MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &recvFlag, &status);
 
+		if (recvFlag)
+		{
+			MPI_Recv(&msgBuff, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+		}
+	} while (status.MPI_TAG != TAG_QUIT );
+	MPI_Send(&hands, 10, MPI_INT, 0, TAG_DATA, MPI_COMM_WORLD);
 }
+
+
 
 int main(int argc, char* argv[])
 {

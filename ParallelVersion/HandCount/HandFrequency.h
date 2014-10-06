@@ -18,7 +18,9 @@ public:
 	bool allHandTypesOccurred();
 	void startTiming();
 	void stopTiming();
+	void addResults(int results[]);
 	void foundHand(int h);
+	void foundHand(int h, int c);
 	HandFrequency();
 };
 #endif

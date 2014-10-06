@@ -50,6 +50,42 @@ void HandFrequency::foundHand(int h) {
 	}
 }
 
+void HandFrequency::foundHand(int h, int c) {
+	switch (h)
+	{
+		case 0:
+			royalFlush += c;
+			break;
+		case 1:
+			straightFlush += c;
+			break;
+		case 2:
+			fourOfAKind += c;
+			break;
+		case 3:
+			fullHouse += c;
+			break;
+		case 4:
+			flush += c;
+			break;
+		case 5:
+			straight += c;
+			break;
+		case 6:
+			threeOfAKind += c;
+			break;
+		case 7:
+			twoPair += c;
+			break;
+		case 8:
+			onePair += c;
+			break;
+		case 9:
+			noPair += c;
+			break;
+	}
+}
+
 void HandFrequency::printFrequencies(std::ostream &out) {
 	int N = royalFlush + straightFlush + flush + straight + fourOfAKind + fullHouse + threeOfAKind + twoPair + onePair + noPair;
 
@@ -145,6 +181,10 @@ void HandFrequency::printFrequencies(std::ostream &out) {
 
 }
 
+void HandFrequency::addResults(int results[]) {
+	for(int i = 0; i < 10; ++i)
+		foundHand(i, results[i]);
+}
 
 void HandFrequency::startTiming() {
 	start = MPI_Wtime();
