@@ -4,7 +4,7 @@
 
 /*
 	HandFrequency.cpp
-	@Auther : Tyler Garrow, Craig Treuleib
+	@Author : Tyler Garrow, Craig Treulieb
 	implements HandFrequency.hpp
 */
 

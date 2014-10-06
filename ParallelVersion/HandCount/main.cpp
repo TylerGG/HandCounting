@@ -8,7 +8,7 @@
 
 /*
 	main.cpp
-	@Auther : Tyler Garrow, Craig Treuleib
+	@Author : Tyler Garrow, Craig Treulieb
 */
 
 using namespace std;
@@ -145,7 +145,6 @@ void processMaster(int numProcs) {
 	vector<Card> deck;
 	populateDeck(deck);
 	HandFrequency hf;
-	srand(time(0));
 	hf.startTiming();
 	while(!hf.allHandTypesOccurred()) {
 		random_shuffle(deck.begin(), deck.end());
@@ -194,6 +193,7 @@ int main(int argc, char* argv[])
 		return EXIT_FAILURE;
 	else{
 		int rank, numProcs;
+		srand(time(0));
 		MPI_Comm_size(MPI_COMM_WORLD, &numProcs);
 		if(numProcs > 0)
 		{

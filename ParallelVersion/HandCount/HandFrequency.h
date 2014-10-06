@@ -8,7 +8,7 @@
 
 /*
 	HandFrequency.h
-	@Auther : Tyler Garrow, Craig Treuleib
+	@Author : Tyler Garrow, Craig Treulieb
 */
 
 
