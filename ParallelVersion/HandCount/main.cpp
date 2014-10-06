@@ -137,7 +137,6 @@ void processMaster(int numProcs) {
 	HandFrequency hf;
 	srand(time(0));
 	hf.startTiming();
-	///////////////////
 	while(!hf.allHandTypesOccurred()) {
 		random_shuffle(deck.begin(), deck.end());
 		handFound = drawAndAnalyzeHand(deck);
@@ -147,7 +146,6 @@ void processMaster(int numProcs) {
 	}
 	terminateWorkers(numProcs);
 	recvFromWorkers(numProcs, hf);
-	///////////////////////
 	hf.addResults(hands);
 	hf.stopTiming();
 	hf.printFrequencies(cout);
