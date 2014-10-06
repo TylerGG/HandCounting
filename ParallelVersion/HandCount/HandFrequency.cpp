@@ -5,8 +5,26 @@
 using namespace std;
 
 HandFrequency::HandFrequency() {
-	royalFlush, straightFlush, fourOfAKind, fullHouse, flush, straight, threeOfAKind, twoPair, onePair, noPair = 0;
-	royalFlushOccurred, straightFlushOccurred, fourOfAKindOccurred, fullHouseOccurred, flushOccurred, straightOccurred, threeOfAKindOccurred, twoPairOccurred, onePairOccurred, noPairOccurred = false;
+	royalFlush = 0;
+	straightFlush = 0;
+	fourOfAKind = 0;
+	fullHouse = 0;
+	flush = 0;
+	straight = 0;
+	threeOfAKind = 0;
+	twoPair = 0;
+	onePair = 0;
+	noPair = 0;
+	royalFlushOccurred = false;
+	straightFlushOccurred = false;
+	fourOfAKindOccurred = false;
+	fullHouseOccurred = false;
+	flushOccurred = false;
+	straightOccurred = false;
+	threeOfAKindOccurred = false;
+	twoPairOccurred = false;
+	onePairOccurred = false;
+	noPairOccurred = false;
 }
 
 

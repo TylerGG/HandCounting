@@ -148,6 +148,7 @@ void processMaster(int numProcs) {
 	terminateWorkers(numProcs);
 	recvFromWorkers(numProcs, hf);
 	///////////////////////
+	hf.addResults(hands);
 	hf.stopTiming();
 	hf.printFrequencies(cout);
 }
