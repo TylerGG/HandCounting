@@ -5,11 +5,20 @@
 #include <iostream>
 #include <locale>
 #include <mpi.h>
+
+/*
+	main.cpp
+	@Auther : Tyler Garrow, Craig Treuleib
+*/
+
 using namespace std;
 
 const int MAX_MSG_SIZE = 10;
 const int TAG_DATA = 0, TAG_QUIT = 1;
 
+
+//*****************************************************************
+//Hand Evaluations
 bool checkForFourOfAKind(std::vector<Card> hand) {
 
 	return(hand[0].getRank() == hand[3].getRank() || hand[1].getRank() == hand[4].getRank());
@@ -38,6 +47,7 @@ bool checkForOnePair(std::vector<Card> hand) {
 	
 	return (hand[0].getRank() == hand[1].getRank() || hand[1].getRank() == hand[2].getRank() || hand[2].getRank() == hand[3].getRank() || hand[3].getRank() == hand[4].getRank());
 }
+//*****************************************************************************
 
 bool operator <(Card lhs, Card rhs){
 	return lhs.getRank() < rhs.getRank();

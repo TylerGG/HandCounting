@@ -2,6 +2,13 @@
 #include <omp.h>
 #include <mpi.h>
 
+/*
+	HandFrequency.cpp
+	@Auther : Tyler Garrow, Craig Treuleib
+	implements HandFrequency.hpp
+*/
+
+
 using namespace std;
 
 HandFrequency::HandFrequency() {

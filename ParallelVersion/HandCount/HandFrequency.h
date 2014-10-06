@@ -6,6 +6,13 @@
 #include <vector>
 #include <algorithm>
 
+/*
+	HandFrequency.h
+	@Auther : Tyler Garrow, Craig Treuleib
+*/
+
+
+
 class HandFrequency {
 private:
 	int royalFlush, straightFlush, fourOfAKind, fullHouse, flush, straight, threeOfAKind, twoPair, onePair, noPair;
