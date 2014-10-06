@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*
+	HandFrequency.cpp
+	@Author : Tyler Garrow, Craig Treulieb
+	implements HandFrequency.hpp
+*/
+
+
 HandFrequency::HandFrequency() {
 	royalFlush = 0;
 	straightFlush = 0;

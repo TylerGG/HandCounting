@@ -6,6 +6,11 @@
 #include <vector>
 #include <algorithm>
 
+/*
+	HandFrequency.h
+	@Author : Tyler Garrow, Craig Treulieb
+*/
+
 class HandFrequency {
 private:
 	int royalFlush;

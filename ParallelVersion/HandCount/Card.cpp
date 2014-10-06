@@ -2,7 +2,7 @@
 
 /*
 	Card.cpp
-	@Auther : Tyler Garrow, Craig Treuleib
+	@Author : Tyler Garrow, Craig Treulieb
 	implements Card.hpp
 */
 

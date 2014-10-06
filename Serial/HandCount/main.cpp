@@ -7,6 +7,13 @@
 #include <mpi.h>
 using namespace std;
 
+/*
+	main.cpp
+	@Author : Tyler Garrow, Craig Treulieb
+*/
+
+
+
 void populateDeck(vector<Card> &deck) {
 	for(int s = SPADES; s <= HEARTS; s++) {
 		for(int r = TWO; r <= ACE; r++ )

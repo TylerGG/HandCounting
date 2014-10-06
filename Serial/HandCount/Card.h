@@ -1,6 +1,11 @@
 #ifndef CARD_H
 #define CARD_H
 
+/*
+	Card.h
+	@Author : Tyler Garrow, Craig Treulieb
+*/
+
 enum Suit {
 	SPADES,
 	DIAMONDS,
