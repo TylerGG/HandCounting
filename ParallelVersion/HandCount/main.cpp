@@ -237,9 +237,6 @@ int main(int argc, char* argv[])
 				processWorker(rank);
 
 		}
-		else {
-			cerr << "0 Procs? Really bub?" << endl;
-		}
 	}
 
 	MPI_Finalize();

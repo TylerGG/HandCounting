@@ -23,7 +23,7 @@
 
 using namespace std;
 
-HandFrequency::HandFrequency() {
+HandFrequency::HandFrequency()  {
 	royalFlush = 0;
 	straightFlush = 0;
 	fourOfAKind = 0;
@@ -44,6 +44,8 @@ HandFrequency::HandFrequency() {
 	twoPairOccurred = false;
 	onePairOccurred = false;
 	noPairOccurred = false;
+	start = 0;
+	end = 0;
 }
 
 
@@ -223,10 +225,12 @@ void HandFrequency::printFrequencies(std::ostream &out) {
 	cout.width(25); cout << right << N;
 	cout << endl;
 
-	cout.width(25); cout << right << "Time Elapsed (s)";
-	cout.width(25); cout << right << end - start;
-	cout << endl;
 
+	if(start != 0 && end != 0 ) {
+		cout.width(25); cout << right << "Time Elapsed (s)";
+		cout.width(25); cout << right << end - start;
+		cout << endl;
+	}
 	
 	int numProcs;
 	MPI_Comm_size(MPI_COMM_WORLD, &numProcs);
