@@ -9,6 +9,17 @@
 /*
 	main.cpp
 	@Author : Tyler Garrow, Craig Treulieb
+	@note where int repersents a hand  type
+	0 = straight
+	1 = flush
+	2 = four of a kind
+	3 = full house
+	4 = flush
+	5 = straight
+	6 = three of a kind
+	7 = two pair
+	8 = one pair
+	9 = no pair
 */
 
 using namespace std;
@@ -54,6 +65,13 @@ bool operator <(Card lhs, Card rhs){
 }
 
 
+/*
+	@function drawAndAnalyzeHand
+	@param vector<Card> [reference] deck to be evaluated for a hand type
+	@return int indicating hand type
+	
+
+*/
 int drawAndAnalyzeHand(std::vector<Card> &deck) {
 
 	
@@ -105,6 +123,14 @@ void terminateWorkers(int numProcs) {
 		MPI_Send(&msgBuff, 1, MPI_INT, p, TAG_QUIT, MPI_COMM_WORLD);
 }
 
+
+/*
+	@function recvFromWorkers
+	@param int number of procceses running 
+	@param HandFrequency [reference] handfrequnecy object to containing all threads frequencies
+	@purpose to recieve messages from all worker threads after they have been told to stop and total there results
+
+*/
 void recvFromWorkers(int numProcs, HandFrequency &hf) {
 	int msgBuff[10];
 	MPI_Status status;
@@ -114,6 +140,13 @@ void recvFromWorkers(int numProcs, HandFrequency &hf) {
 	}
 }
 
+
+/*
+	@function checkForNewHands
+	@param HandFrequency [reference] object that keep tracks of what hand have been found so far
+	@purpose check ot see if a worker has send a message and if it has reolve it
+
+*/
 void checkForNewHands(HandFrequency &hf) {
 
 	static int msgBuff, recvFlag;

@@ -6,6 +6,18 @@
 	HandFrequency.cpp
 	@Author : Tyler Garrow, Craig Treulieb
 	implements HandFrequency.hpp
+
+	@note where int repersents a hand  type
+	0 = straight
+	1 = flush
+	2 = four of a kind
+	3 = full house
+	4 = flush
+	5 = straight
+	6 = three of a kind
+	7 = two pair
+	8 = one pair
+	9 = no pair
 */
 
 
@@ -39,6 +51,12 @@ bool HandFrequency::allHandTypesOccurred() {
 	return (royalFlushOccurred && straightFlushOccurred && fourOfAKindOccurred && fullHouseOccurred && flushOccurred && straightOccurred && threeOfAKindOccurred && twoPairOccurred && onePairOccurred && noPairOccurred);
 }
 
+
+/*
+	@HandFrequency member function foundHand
+	@int represents hand type;
+	@purpose to be able to track what hands have been found
+*/
 void HandFrequency::foundHand(int h) {
 	switch (h)
 	{
@@ -75,6 +93,13 @@ void HandFrequency::foundHand(int h) {
 	}
 }
 
+
+/*
+	@HandFrequency member function foundHand
+	@param int representing the Hand type
+	@param int the frequency to be added to a hand type
+	@purpose to be able to total frequencies for each hand type
+*/
 void HandFrequency::foundHand(int h, int c) {
 	switch (h)
 	{
@@ -111,6 +136,15 @@ void HandFrequency::foundHand(int h, int c) {
 	}
 }
 
+
+/*
+	@function printFrequencies
+	@param ostream [reference]
+	@puropose	will take the frequencies of of all card types and print it into a table.
+
+	@Note if start and end time are not used with HandFrequency displayed time is not reliable
+
+*/
 void HandFrequency::printFrequencies(std::ostream &out) {
 	int N = royalFlush + straightFlush + flush + straight + fourOfAKind + fullHouse + threeOfAKind + twoPair + onePair + noPair;
 
